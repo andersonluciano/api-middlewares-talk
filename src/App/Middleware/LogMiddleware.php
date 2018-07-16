@@ -23,7 +23,8 @@ class LogMiddleware implements MiddlewareInterface
         $response = $delegate->process($request, $delegate);
         $requestResume['response'] = $response->getBody()->getContents();
         $requestResume['status-code'] = $response->getStatusCode();
-        file_put_contents("/tmp/mylog.log", date("d-m-Y H:i:s") . "\n", print_r($requestResume, 1) . "\n\n", FILE_APPEND);
+        file_put_contents("/tmp/mylog.log", date("d-m-Y H:i:s") . "\n" . print_r($requestResume, 1) . "\n\n", FILE_APPEND);
+
 
         return $response;
     }

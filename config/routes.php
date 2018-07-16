@@ -30,4 +30,4 @@
 
 $app->get('/', App\Action\HomePageAction::class, 'home');
 $app->get('/api/ping', App\Action\PingAction::class, 'api.ping');
-$app->get('/api/linguagens', App\Action\PingAction::class, 'api.linguagens');
+$app->get('/api/array-functions', App\Action\ArrayFunctionsAction::class, 'api.array-functions');
