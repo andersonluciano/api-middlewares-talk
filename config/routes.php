@@ -30,4 +30,4 @@
 
 $app->get('/', App\Action\HomePageAction::class, 'home');
 $app->get('/api/ping', App\Action\PingAction::class, 'api.ping');
-$app->route('/usuario/autentica', App\Action\AutenticaAction::class, ["GET", "POST"], 'api.autentica');
+$app->get('/api/linguagens', App\Action\PingAction::class, 'api.linguagens');

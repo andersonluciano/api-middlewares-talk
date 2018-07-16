@@ -38,7 +38,9 @@ $app->pipe(ServerUrlMiddleware::class);
 // - $app->pipe('/files', $filesMiddleware);
 
 // Register the routing middleware in the middleware pipeline
-$app->pipe(App\Middleware\RequestMiddleware::class);
+$app->pipe(App\Middleware\AuthorizationMiddleware::class);
+$app->pipe(App\Middleware\LogMiddleware::class);
+$app->pipe(App\Middleware\FormatMiddleware::class);
 $app->pipe(RouteMiddleware::class);
 $app->pipe(ImplicitHeadMiddleware::class);
 $app->pipe(ImplicitOptionsMiddleware::class);
@@ -53,8 +55,6 @@ $app->pipe(UrlHelperMiddleware::class);
 
 // Register the dispatch middleware in the middleware pipeline
 $app->pipe(DispatchMiddleware::class);
-$app->pipe(App\Middleware\FormatMiddleware::class);
-
 // At this point, if no Response is returned by any middleware, the
 // NotFoundHandler kicks in; alternately, you can provide other fallback
 // middleware to execute.

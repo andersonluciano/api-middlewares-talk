@@ -7,11 +7,10 @@ use Interop\Http\ServerMiddleware\MiddlewareInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Zend\Diactoros\Response\JsonResponse;
 
-class RequestMiddleware implements MiddlewareInterface
+class AuthorizationMiddleware implements MiddlewareInterface
 {
     public function process(ServerRequestInterface $request, DelegateInterface $delegate)
     {
-
         $auth = $request->getHeader("Authorization");
 
         if ($auth[0] != "tdc2018") {

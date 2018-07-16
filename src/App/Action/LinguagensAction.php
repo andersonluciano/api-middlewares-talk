@@ -7,17 +7,10 @@ use Interop\Http\ServerMiddleware\MiddlewareInterface as ServerMiddlewareInterfa
 use Zend\Diactoros\Response\JsonResponse;
 use Psr\Http\Message\ServerRequestInterface;
 
-class AutenticaAction extends AbstractApiAction
+class LinguagensAction implements ServerMiddlewareInterface
 {
-    public function get(ServerRequestInterface $request)
+    public function process(ServerRequestInterface $request, DelegateInterface $delegate)
     {
-
-        return new JsonResponse(["ok"]);
-    }
-
-    public function post(ServerRequestInterface $request)
-    {
-
-        return new JsonResponse(["ok"]);
+        return new JsonResponse(['ack' => time()]);
     }
 }

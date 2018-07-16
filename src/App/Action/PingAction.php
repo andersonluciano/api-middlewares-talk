@@ -11,6 +11,8 @@ class PingAction implements ServerMiddlewareInterface
 {
     public function process(ServerRequestInterface $request, DelegateInterface $delegate)
     {
-        return new JsonResponse(['ack' => time()]);
+
+
+        return new JsonResponse(["ok"]);
     }
 }
