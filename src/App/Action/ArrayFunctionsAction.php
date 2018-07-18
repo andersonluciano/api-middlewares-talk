@@ -11,8 +11,9 @@ class ArrayFunctionsAction implements ServerMiddlewareInterface
 {
     public function process(ServerRequestInterface $request, DelegateInterface $delegate)
     {
+        $data = $this->getArrayFunctions();
 
-        return new JsonResponse($this->getArrayFunctions());
+        return new JsonResponse($data);
     }
 
 
